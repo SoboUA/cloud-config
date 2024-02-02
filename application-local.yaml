@@ -10,16 +10,16 @@ spring:
 cloud:
   aws:
     cognito:
-      api-client: 2cuh3qaoql6nk7fa87js7a9r4u
-      user-pool-id: us-east-1_te0SHx5pF
+      api-client: 2auh3qafdf7nh7fa87js7f9r45
+      user-pool-id: us-east-1_tfsfet4gF
 
 springdoc:
   swagger-ui:
     urls:
       - name: ${service.common.display-name}
         url: ${service.common.base-url}/v3/api-docs
-      - name: ${service.linen-helper.display-name}
-        url: ${service.linen-helper.base-url}/v3/api-docs
+      - name: ${service.helper.display-name}
+        url: ${service.helper.base-url}/v3/api-docs
       - name: ${service.tenant.display-name}
         url: ${service.tenant.base-url}/v3/api-docs
       - name: ${service.user.display-name}
@@ -42,7 +42,7 @@ service:
     base-url: http://localhost:8100
   admin-internal:
     base-url: http://localhost:8101
-  linen-helper:
+  helper:
     base-url: http://localhost:8102
   tenant:
     base-url: http://localhost:8103
