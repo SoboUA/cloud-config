@@ -1,2 +1,65 @@
-testing:
-  value: from repo
+spring:
+  jackson:
+    default-property-inclusion: non_null
+    serialization:
+      INDENT_OUTPUT: true
+    deserialization:
+      FAIL_ON_UNKNOWN_PROPERTIES: false
+  sql:
+    init:
+      mode: never
+  datasource:
+    hikari:
+      pool-name: db-pool-\${spring.application.name}
+
+management:
+  endpoint:
+    logfile:
+      external_file: ./logs/spring-boot-logger.log
+    health:
+      probes:
+        enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: health,info,logfile
+
+springdoc:
+  default-produces-media-type: application/json
+  swagger-ui:
+    urls:
+      - name: \${service.common.display-name}
+        url: \${server.base-url}/swagger-resources/common
+      - name: \${service.helper.display-name}
+        url: \${server.base-url}/swagger-resources/linen-helper
+      - name: \${service.admin-internal.display-name}
+        url: \${server.base-url}/swagger-resources/admin-internal
+
+
+server:
+  error:
+    include-stacktrace: on_param
+    include-message: always
+    include-binding-errors: never
+
+service:
+  common:
+    display-name: Common App
+    base-url: http://aaa
+  helper:
+    display-name: dadas
+    base-url: http://aaa
+  tenant:
+    display-name: adada
+    base-url: http://aaa
+  user:
+    display-name: User Service
+    base-url:http://aaa
+  role-and-permission:
+    display-name: Role and Permission Service
+    base-url: http://aaa
+  admin-internal:
+    display-name: sadad
+    base-url: http://aaa
+  version: \${spring.application.version}
+  name: \${spring.application.name}
