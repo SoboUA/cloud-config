@@ -1,0 +1,52 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/texodb
+    username: root
+    password: admin
+  jpa:
+    hibernate:
+      ddl-auto: validate
+
+cloud:
+  aws:
+    cognito:
+      api-client: 2cuh3qaoql6nk7fa87js7a9r4u
+      user-pool-id: us-east-1_te0SHx5pF
+
+springdoc:
+  swagger-ui:
+    urls:
+      - name: ${service.common.display-name}
+        url: ${service.common.base-url}/v3/api-docs
+      - name: ${service.linen-helper.display-name}
+        url: ${service.linen-helper.base-url}/v3/api-docs
+      - name: ${service.tenant.display-name}
+        url: ${service.tenant.base-url}/v3/api-docs
+      - name: ${service.user.display-name}
+        url: ${service.user.base-url}/v3/api-docs
+      - name: ${service.role-and-permission.display-name}
+        url: ${service.role-and-permission.base-url}/v3/api-docs
+      - name: ${service.admin-internal.display-name}
+        url: ${service.admin-internal.base-url}/v3/api-docs
+
+server:
+  base-url: http://localhost:8100
+  error:
+    include-stacktrace: always
+    include-binding-errors: always
+    include-exception: true
+  port: 8100
+
+service:
+  common:
+    base-url: http://localhost:8100
+  admin-internal:
+    base-url: http://localhost:8101
+  linen-helper:
+    base-url: http://localhost:8102
+  tenant:
+    base-url: http://localhost:8103
+  user:
+    base-url: http://localhost:8104
+  role-and-permission:
+    base-url: http://localhost:8105
