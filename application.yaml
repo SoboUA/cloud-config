@@ -54,7 +54,7 @@ service:
     base-url: http://aaa
   user:
     display-name: User Service
-    base-url:http://aaa
+    base-url: http://aaa
   role-and-permission:
     display-name: Role and Permission Service
     base-url: http://aaa
