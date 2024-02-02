@@ -1,14 +1,2 @@
-spring:
-  datasource:
-    url: jdbc:postgresql://dev-texo-pg-instance-1.clzgvmq4xp1r.us-east-1.rds.amazonaws.com:5432/texodb
-    username: ${dbusername}
-    password: ${dbpassword}
 
-cloud:
-  aws:
-    cognito:
-      api-client: 2cuh3qaoql6nk7fa87js7a9r4u
-      user-pool-id: us-east-1_te0SHx5pF
 
-server:
-  base-url: https://dev-api.dev-texo.linenmaster.net
